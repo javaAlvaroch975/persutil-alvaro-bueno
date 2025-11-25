@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `blog` (
   `id` bigint NOT NULL,
   `titulo` varchar(1024) COLLATE utf32_unicode_ci NOT NULL,
-  `contenido` varchar(255) COLLATE utf32_unicode_ci NOT NULL,
+  `contenido` longtext COLLATE utf32_unicode_ci NOT NULL,
   `etiquetas` varchar(1024) COLLATE utf32_unicode_ci NOT NULL,
   `fecha_creacion` datetime NOT NULL,
   `fecha_modificacion` datetime DEFAULT NULL
