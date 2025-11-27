@@ -18,22 +18,25 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "recurso")
+@Table(name = "contreras")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class PavonEntity {
+public class ContrerasEntity {
     
-    @Id
+   @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @NotNull
     @Size(min = 3, max = 1024)
-    private String nombre;
+    private String titulo;
     @NotNull
     @Size(min = 3)
-    private String url;
+    private String contenido;
+    @NotNull
+    @Size(min = 3, max = 1024)
+    private String etiquetas;
     @NotNull
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", shape = JsonFormat.Shape.STRING)
     private LocalDateTime fechaCreacion;
@@ -41,5 +44,5 @@ public class PavonEntity {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", shape = JsonFormat.Shape.STRING)
     private LocalDateTime fechaModificacion;
     @NotNull
-    private boolean publico;
+    private boolean publico = false;
 }

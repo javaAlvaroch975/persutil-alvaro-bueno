@@ -14,52 +14,52 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import net.ausiasmarch.persutil.entity.PavonEntity;
-import net.ausiasmarch.persutil.service.PavonService;
+import net.ausiasmarch.persutil.entity.ContrerasEntity;
+import net.ausiasmarch.persutil.service.ContrerasService;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")    //ESTO ES PARA SOLUCIONAR EL CORS
 @RestController
 @RequestMapping("/recurso")
-public class PavonApi {
+public class ContrerasApi {
 
     @Autowired
-    PavonService oPavonService;
+    ContrerasService oContrerasService;
 
     // ----------------------------CRUD---------------------------------
 
     // obtener post por id
     @GetMapping("/{id}")
-    public ResponseEntity<PavonEntity> get(@PathVariable Long id) {
-        return ResponseEntity.ok(oPavonService.get(id));
+    public ResponseEntity<ContrerasEntity> get(@PathVariable Long id) {
+        return ResponseEntity.ok(oContrerasService.get(id));
     }
 
     // crear posts
     @PostMapping("")
-    public ResponseEntity<Long> create(@RequestBody PavonEntity pavonEntity) {
-        return ResponseEntity.ok(oPavonService.create(pavonEntity));
+    public ResponseEntity<Long> create(@RequestBody ContrerasEntity contrerasEntity) {
+        return ResponseEntity.ok(oContrerasService.create(contrerasEntity));
     }
 
     // modificar posts
     @PutMapping("")
-    public ResponseEntity<Long> update(@RequestBody PavonEntity pavonEntity) {
-        return ResponseEntity.ok(oPavonService.update(pavonEntity));
+    public ResponseEntity<Long> update(@RequestBody ContrerasEntity contrerasEntity) {
+        return ResponseEntity.ok(oContrerasService.update(contrerasEntity));
     }
 
     // borrar posts
     @DeleteMapping("/{id}")
     public ResponseEntity<Long> delete(@PathVariable Long id) {
-        return ResponseEntity.ok(oPavonService.delete(id));
+        return ResponseEntity.ok(oContrerasService.delete(id));
     }
 
     // listado paginado de posts
     @GetMapping("")
-    public ResponseEntity<Page<PavonEntity>> getPage(Pageable oPageable) {
-        return ResponseEntity.ok(oPavonService.getPage(oPageable));
+    public ResponseEntity<Page<ContrerasEntity>> getPage(Pageable oPageable) {
+        return ResponseEntity.ok(oContrerasService.getPage(oPageable));
         
     }
 
     @GetMapping("/count")
     public ResponseEntity<Long> count() {
-        return ResponseEntity.ok(oPavonService.count()); 
+        return ResponseEntity.ok(oContrerasService.count()); 
     }
 }
