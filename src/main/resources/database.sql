@@ -50,40 +50,43 @@ ALTER TABLE `blog`
 ALTER TABLE `blog`
   MODIFY `id` bigint NOT NULL AUTO_INCREMENT;
 
-----------------------------------------Alejandro Pavón Martínez-------------------------------------------------
+-- --------------------------------------------------------
+
 --
--- Estructura de tabla para la tabla `recurso`
+-- Estructura de tabla para la tabla `contreras`
 --
 
-CREATE TABLE `recurso` (
-  `id` bigint NOT NULL,
-  `nombre` varchar(1024) CHARACTER SET utf32 COLLATE utf32_unicode_ci NOT NULL,
-  `url` varchar(255) COLLATE utf32_unicode_ci NOT NULL,
+CREATE TABLE `contreras` (
+  `id` bigint(20) NOT NULL,
+  `titulo` varchar(1024) NOT NULL,
+  `contenido` varchar(255) NOT NULL,
+  `etiquetas` varchar(1024) NOT NULL,
   `fecha_creacion` datetime NOT NULL,
   `fecha_modificacion` datetime DEFAULT NULL,
-  `publico` tinyint(1) NOT NULL
+  `publico` tinyint(1) NOT NULL,
+  `imagenUrl` varchar(512) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
 
 --
--- Volcado de datos para la tabla `recurso`
+-- Volcado de datos para la tabla `contreras`
 --
 
-INSERT INTO `recurso` (`id`, `nombre`, `url`, `fecha_creacion`, `fecha_modificacion`, `publico`) VALUES
-(1, 'Wikipedia', 'https://wikipedia.org', '2025-11-24 11:25:21', NULL, 1),
-(2, 'ChatGPT', 'https://chatgpt.com/', '2025-11-24 11:25:21', NULL, 1),
-(3, 'GitHub', 'https://github.com/', '2025-11-24 12:47:50', NULL, 1),
-(6, 'WikiRafa', 'https://wikirafa.ausiasmarch.net/', '2025-11-25 09:43:04', '2025-11-25 09:43:08', 1),
-(7, 'Stack Overflow', 'https://stackoverflow.com/', '2025-11-25 09:45:27', NULL, 1),
-(8, 'Regex Builder', 'https://regex101.com/', '2025-11-25 09:45:53', NULL, 1);
+INSERT INTO `contreras` (`id`, `titulo`, `contenido`, `etiquetas`, `fecha_creacion`, `fecha_modificacion`, `publico`, `imagenUrl`) VALUES
+(1, 'Clase 1-B', 'EXAMEN MATES LUNES', 'clase,examen', '2025-11-28 03:17:48', '2025-11-28 03:19:12', 1, NULL),
+(2, 'Excursion', 'proxima excursion al museo el jueves', 'salida,museo', '2025-11-28 03:17:48', '2025-11-28 03:19:26', 0, NULL),
+(3, 'Reunion padres', 'reunion padres viernes a las 17h', 'reunion,familiar', '2025-11-28 03:17:48', NULL, 1, NULL),
+(4, 'Biblioteca', 'nuevos libros disponibles en biblioteca, 10/10', 'libros,biblioteca', '2025-11-28 03:17:48', '2025-11-28 03:19:35', 0, NULL),
+(5, 'Educacion fisica', 'traer ropa deportiva el martes', 'deporte,clase', '2025-11-28 03:17:48', NULL, 1, NULL),
+(6, 'Comedor escolar', 'menu especial sin gluten esta semana', 'comedor,menu', '2025-11-28 03:17:48', NULL, 1, NULL);
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `recurso`
+-- Indices de la tabla `contreras`
 --
-ALTER TABLE `recurso`
+ALTER TABLE `contreras`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -91,8 +94,8 @@ ALTER TABLE `recurso`
 --
 
 --
--- AUTO_INCREMENT de la tabla `recurso`
+-- AUTO_INCREMENT de la tabla `contreras`
 --
-ALTER TABLE `recurso`
-  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;  
+ALTER TABLE `contreras`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
